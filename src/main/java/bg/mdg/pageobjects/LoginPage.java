@@ -4,15 +4,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import bg.mdg.commons.PropertiesCache;
+
 public class LoginPage extends BasePageObject {
 	private final String expectedTitle = "My.dir.bg";
 	private final String errorMessage = "Грешно потребителско име или парола!";
 
-	private final By emailTextBox = By.id("login_name");
-	private final By passwordTextBox = By.id("login_pass");
-	private final By loginBtn = By.id("submit_but");
-	private final By errorMsgTxt = By.cssSelector(".fpBlockBody2 b");
-	private final By loggedUserArea = By.id("usernick");
+	private final By emailTextBox = By.id(PropertiesCache.getInstance().getProperty("emailInputBoxId"));
+	private final By passwordTextBox = By.id(PropertiesCache.getInstance().getProperty("passwordInputTextBoxId"));
+	private final By loginBtn = By.id(PropertiesCache.getInstance().getProperty("loginPageLoginBtnId"));
+	private final By errorMsgTxt = By.cssSelector(PropertiesCache.getInstance().getProperty("errorMsgTxtAreaCss"));
+	private final By loggedUserArea = By.id(PropertiesCache.getInstance().getProperty("loggedUserAreaId"));
 
 	public LoginPage(WebDriver driver) {
 		super(driver);

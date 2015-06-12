@@ -5,10 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+import bg.mdg.commons.PropertiesCache;
+
 public class HomePage extends BasePageObject {
 	private final String expectedPageTitle = "Dir.bg - Българският Интернет портал!";
-
-	private final By loginBtn = By.cssSelector("#lenta-login a");
+	
+	private final By loginBtn = By.cssSelector(PropertiesCache.getInstance().getProperty("homePageLoginBtnCss"));
 
 	public HomePage(WebDriver driver) {
 		super(driver);

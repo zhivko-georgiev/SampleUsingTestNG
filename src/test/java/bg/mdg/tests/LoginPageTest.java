@@ -26,7 +26,7 @@ public class LoginPageTest extends TestBaseSetup {
 		System.out.println("Sign In functionality details...");
 		homePage = new HomePage(driver);
 		loginPage = homePage.clickLoginBtn();
-
+		
 		Assert.assertTrue(loginPage.verifySuccessfulLogin(username, password),
 				"Unable to login");
 	}
