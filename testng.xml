@@ -1,5 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Page Object test example">
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+	</listeners>
 	<parameter name="appURL" value="http://dir.bg/" />
 	<parameter name="username" value="g5140549@trbvm.com" />
 	<parameter name="password" value="2477261f" />
@@ -12,13 +16,9 @@
 			<class name="bg.mdg.tests.LoginPageTest" />
 		</classes>
 	</test>
-<!-- 	<test name="sample test using Firefox">
-		<parameter name="browserType" value="firefox" />
-		<classes>
-			<class name="bg.mdg.tests.HomePageTest" />
-			<class name="bg.mdg.tests.LoginPageTest" />
-		</classes>
-	</test> -->
+	<!-- <test name="sample test using Firefox"> <parameter name="browserType" 
+		value="firefox" /> <classes> <class name="bg.mdg.tests.HomePageTest" /> <class 
+		name="bg.mdg.tests.LoginPageTest" /> </classes> </test> -->
 </suite>
 
 	
