@@ -1,6 +1,7 @@
 package bg.mdg.pageobjects;	
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -8,10 +9,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePageObject {
-	protected WebDriver driver;
+	private WebDriver driver;
 
 	public BasePageObject(WebDriver driver) {
 		this.driver = driver;
+	}
+	
+	protected WebDriver getDriver() {
+		return this.driver;
 	}
 
 	protected String getPageTitle() {
@@ -23,7 +28,7 @@ public abstract class BasePageObject {
 		try {
 			waitFor(ExpectedConditions.visibilityOfElementLocated(locator),
 					(timeout.length > 0 ? timeout[0] : null));
-		} catch (org.openqa.selenium.TimeoutException exception) {
+		} catch (TimeoutException exception) {
 			return false;
 		}
 		return true;

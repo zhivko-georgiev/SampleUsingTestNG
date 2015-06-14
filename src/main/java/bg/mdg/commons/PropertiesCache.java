@@ -12,7 +12,6 @@ public class PropertiesCache {
 
 	private PropertiesCache() {
 		try {
-			System.out.println("Read all properties from file");
 			File file = new File(pathToThePropertiesFile);
 			FileInputStream fileInput = new FileInputStream(file);
 			configProp.load(fileInput);

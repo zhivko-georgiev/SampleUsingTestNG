@@ -1,7 +1,8 @@
 package bg.mdg.tests;
 
+import static org.testng.AssertJUnit.assertTrue;
+
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -9,8 +10,8 @@ import bg.mdg.commons.TestBaseSetup;
 import bg.mdg.pageobjects.HomePage;
 
 public class HomePageTest extends TestBaseSetup {
-
 	private WebDriver driver;
+	private HomePage homePage;
 
 	@BeforeMethod
 	public void setUp() {
@@ -19,9 +20,7 @@ public class HomePageTest extends TestBaseSetup {
 
 	@Test
 	public void verifyHomePage() {
-		System.out.println("Home page test...");
-		HomePage basePage = new HomePage(driver);
-		Assert.assertTrue(basePage.verifyBasePageTitle(),
-				"Home page title doesn't match");
+		homePage = new HomePage(driver);
+		assertTrue(homePage.verifyBasePageTitle());
 	}
 }
